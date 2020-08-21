@@ -123,6 +123,10 @@ public struct JSON {
 	 - returns: the created JSON object
 	*/
 	public init(parseJSON jsonString: String) {
+    guard  !jsonString.isEmpty else{
+      self.init(NSNull())
+      return
+    }
 		if let data = jsonString.data(using: .utf8) {
 			self.init(data)
 		} else {
